@@ -1,0 +1,31 @@
+<odoo>
+    <record model="ir.actions.act_window" id="sale_order_inherit_action">
+      <field name="name">rentalsales.sale.order</field>
+      <field name="res_model">sale.order</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record id="view_sale_order_form_inherit" model="ir.ui.view">
+        <field name="name">rentalsales.sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="attributes">
+                <attribute name="domain"></attribute>  <!-- Removes inherited domain -->
+            </xpath>
+            <xpath expr="//field[@name='product_id']" position="attributes">
+                <attribute name="domain">[('is_rent', '=', True)]</attribute>
+            </xpath>
+             <xpath expr="//header" position="inside">
+                <button name="action_rentalsales_confirm" type="object" string="Confirm" class="btn-primary"/>
+                <button name="action_rentalsales_reserve" type="object" string="Reserve" class="btn-primary" invisible="state != 'sale' or rental_status != 'draft'"/>
+                <button name="action_rentalsales_returned" type="object" string="Turn In" class="btn-primary" invisible="rental_status in ('draft', 'returned', 'cancelled')"/>
+                <field name="rental_status" widget="statusbar" options="{'clickable': False}" />
+            </xpath>
+            <xpath expr="//field[@name='payment_term_id']" position="after">    
+                    <field name="rental_start_date" string="Rental Start"/>
+                    <field name="rental_return_date"  string="Rental End"/>
+                    <field name="duration_days" string="Duration" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

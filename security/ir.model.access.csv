@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rentalsales_admin,rentalsales_admin,model_product_template,rental_sales_admin,1,1,1,1
+access_rentalsales_user,rentalsales_user,model_product_template,rental_sales_admin,1,0,0,0

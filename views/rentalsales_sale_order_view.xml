@@ -18,9 +18,10 @@
                 <button name="action_rentalsales_returned" type="object" string="Turn In" class="btn-primary" invisible="rental_status in ('draft', 'returned', 'cancelled')"/>
                 <field name="rental_status" widget="statusbar" options="{'clickable': False}" />
             </xpath>
-            <xpath expr="//field[@name='payment_term_id']" position="after">    
-                    <field name="rental_start_date" string="Rental Start"/>
-                    <field name="rental_return_date"  string="Rental End"/>
+            <xpath expr="//field[@name='payment_term_id']" position="after">  
+                    <field name="rental_start_date" string="Period"/>
+                    <span class="fa fa-arrow-right" style="margin: 7px;"/>
+                    <field name="rental_return_date" nolabel="1"/>
                     <field name="duration_days" string="Duration" />
             </xpath>
         </field>

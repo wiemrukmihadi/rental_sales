@@ -1,6 +1,10 @@
 <odoo>
     <menuitem name="Rental" id="root_product_level_main" action="product_template_inherit_action" >
-        <menuitem name="Orders" id="root_product_level_order" action="sale_order_inherit_action" >
+        <menuitem name="Orders" id="root_product_level_order" >
+            <menuitem name="Orders" id="root_product_level_order1" action="sale_order_inherit_action" >
+            </menuitem>
+            <menuitem name="Rental Orders" id="root_product_level_order2" action="action_rental_products" >
+            </menuitem>
         </menuitem>
     </menuitem>
 </odoo>

@@ -1,0 +1,25 @@
+# Ignore Odoo compiled Python files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore log files
+logs/
+*.log
+
+# Ignore database dumps
+*.sql
+*.dump
+
+# Ignore Odoo config files (optional, jika tidak ingin dibagikan)
+*.conf
+odoo.conf
+
+# Ignore custom addons cache
+addons/.local/
+addons/__pycache__/
+
+# Ignore dependencies
+venv/
+.env/
+node_modules/

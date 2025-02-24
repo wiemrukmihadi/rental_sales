@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import _, models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class SaleOrder(models.Model):
@@ -37,6 +38,9 @@ class SaleOrder(models.Model):
             if record.rental_start_date and record.rental_return_date:
                 if record.rental_start_date <= today <= record.rental_return_date:
                     record.rental_status = "reserved"
+            else:
+                raise ValidationError(_("Start Date and Return Date can not be empty"))
+
     def action_rentalsales_reserve(self):
         for record in self:
             record.rental_status = 'reserved'

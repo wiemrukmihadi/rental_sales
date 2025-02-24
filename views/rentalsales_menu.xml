@@ -3,7 +3,7 @@
         <menuitem name="Orders" id="root_product_level_order" >
             <menuitem name="Orders" id="root_product_level_order1" action="sale_order_inherit_action" >
             </menuitem>
-            <menuitem name="Rental Orders" id="root_product_level_order2" action="action_rental_products" >
+            <menuitem name="Rental Products" id="root_product_level_order2" action="action_rental_products" >
             </menuitem>
         </menuitem>
     </menuitem>

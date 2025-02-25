@@ -35,15 +35,3 @@ class ProductTemplate(models.Model):
             'context': {'default_rental_status': 'reserved'},
         }
 
-
-    def action_rental_products(self):
-        return {
-            "name": _("Rental Product"),
-            "type": "ir.actions.act_window",
-            "view_mode": "tree,form",
-            "res_model": "product.template",
-            "target": "current",
-            "domain": [("is_rent", "=", True)],
-            "context": {"default_is_rent": self.id}
-        }
-

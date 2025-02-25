@@ -24,7 +24,7 @@ Long description of module's purpose
     'data': [
         'security/res_groups.xml',
         'security/ir.model.access.csv',
-        'views/rental_product_view.xml',
+        'views/sale_order_reserved_view.xml',
         'views/rentalsales_product_view.xml',
         'views/rentalsales_sale_order_view.xml',
         'views/rentalsales_menu.xml',

@@ -11,7 +11,15 @@
                 <field name="duration_days"/>
                 <field name="amount_total"/>
                 <field name="state"/>
-                <field name="rental_status"/>
+                <field 
+                    name="rental_status"
+                    decoration-success="rental_status == 'reserved'"
+                    decoration-primary="rental_status == 'returned'"
+                    decoration-danger="rental_status == 'cancelled'"
+                    decoration-muted="rental_status == 'draft'"
+                    widget="badge"
+                    optional="show"
+                />
             </tree>
         </field>
     </record>

@@ -22,6 +22,18 @@ class SaleOrder(models.Model):
 
     )
 
+    def action_confirm(self):
+        result = super(SaleOrder, self).action_confirm()
+        today = fields.Datetime.now()
+        for record in self:
+            if record.rental_start_date and record.rental_return_date:
+                if record.rental_start_date <= today <= record.rental_return_date:
+                    record.rental_status = "reserved"
+            else:
+                raise ValidationError(_("Start Date and Return Date can not be empty"))
+        return result
+
+
     @api.depends("rental_start_date", "rental_return_date")
     def _compute_duration_days(self):
         for record in self:
@@ -46,5 +58,5 @@ class SaleOrder(models.Model):
             record.rental_status = 'reserved'
     def action_rentalsales_returned(self):
         for record in self:
-            record.rental_status = 'draft'
+            record.rental_status = 'returned'
 

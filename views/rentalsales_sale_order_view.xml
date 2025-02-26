@@ -10,7 +10,7 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_template_id']" position="attributes">
-                <attribute name="domain">[('is_rent', '=', True)]</attribute>
+                <attribute name="domain">[('sale_ok', '=', True), ('is_rent', '=', True)]</attribute>
             </xpath>
              <xpath expr="//header" position="inside">
                 <button name="action_rentalsales_confirm" type="object" string="Confirm" class="btn-primary"/>

@@ -3,6 +3,8 @@
       <field name="name">Orders</field>
       <field name="res_model">sale.order</field>
       <field name="view_mode">tree,form</field>
+      <field name="domain">[('is_rental_order', '=', True)]</field>
+      <field name="context">{'default_is_rental_order': True}</field>
     </record>
     <record id="view_sale_order_form_inherit" model="ir.ui.view">
         <field name="name">rentalsales.sale.order.form.inherit</field>
